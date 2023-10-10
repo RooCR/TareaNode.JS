@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API TEST</title>
+</head>
+<body>
+    <h1>Add user</h1>
+    <form class="add" action="/add" method="post">
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="submit">Add User</button>
+    </form><br>
+    <div id="contenedor"></div>
+
+    <form class="delete" action="/delete" method="delete">
+        <label for="id">ID: </label>
+        <input type="id" id="id" name="id" required><br><br>
+        <button type="submit">Delete User</button>
+    </form>
+
+    <script>
+        const UrlParams = new URLSearchParams(window.location.search);
+        const successParam = UrlParams.get("success");
+
+            if(successParam === "1"){
+                const newDiv = document.createElement("div");
+                newDiv.textContent="Usuario agregado con exito";
+                const contenedor = document.getElementById("contenedor");
+                contenedor.appendChild(newDiv);
+            }
+    </script>
+
+</body>
+</html>
